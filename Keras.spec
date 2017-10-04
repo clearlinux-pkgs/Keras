@@ -4,13 +4,14 @@
 #
 Name     : Keras
 Version  : 2.0.8
-Release  : 13
+Release  : 14
 URL      : http://pypi.debian.net/Keras/Keras-2.0.8.tar.gz
 Source0  : http://pypi.debian.net/Keras/Keras-2.0.8.tar.gz
 Summary  : Deep Learning for Python
 Group    : Development/Tools
 License  : MIT
 Requires: Keras-legacypython
+Requires: Keras-python3
 Requires: Keras-python
 Requires: h5py
 Requires: numpy
@@ -40,6 +41,7 @@ BuildRequires : tensorflow
 %package legacypython
 Summary: legacypython components for the Keras package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the Keras package.
@@ -49,10 +51,20 @@ legacypython components for the Keras package.
 Summary: python components for the Keras package.
 Group: Default
 Requires: Keras-legacypython
+Requires: Keras-python3
 Provides: keras-python
 
 %description python
 python components for the Keras package.
+
+
+%package python3
+Summary: python3 components for the Keras package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the Keras package.
 
 
 %prep
@@ -63,12 +75,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505004741
+export SOURCE_DATE_EPOCH=1507155876
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505004741
+export SOURCE_DATE_EPOCH=1507155876
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -84,5 +96,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*

@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.0.8
-Release  : 14
+Release  : 15
 URL      : http://pypi.debian.net/Keras/Keras-2.0.8.tar.gz
 Source0  : http://pypi.debian.net/Keras/Keras-2.0.8.tar.gz
 Summary  : Deep Learning for Python

@@ -3,3 +3,5 @@
 PyYAML
 Theano
 tensorflow
+setuptools-python
+setuptools-legacypython

@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.1.5
-Release  : 24
+Release  : 25
 URL      : http://pypi.debian.net/Keras/Keras-2.1.5.tar.gz
 Source0  : http://pypi.debian.net/Keras/Keras-2.1.5.tar.gz
 Summary  : Deep Learning for humans
@@ -31,7 +31,6 @@ BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : scipy
 BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
 BuildRequires : setuptools-python
 BuildRequires : six
 BuildRequires : tensorflow
@@ -67,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522119315
+export SOURCE_DATE_EPOCH=1523555678
 python3 setup.py build -b py3
 
 %install

@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.1.6
-Release  : 27
+Release  : 28
 URL      : http://pypi.debian.net/Keras/Keras-2.1.6.tar.gz
 Source0  : http://pypi.debian.net/Keras/Keras-2.1.6.tar.gz
 Summary  : Deep Learning for humans

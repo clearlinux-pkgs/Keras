@@ -4,3 +4,5 @@ PyYAML
 Theano
 tensorflow
 setuptools-python
+Keras_Applications
+Keras_Preprocessing

@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.2.0
-Release  : 30
+Release  : 31
 URL      : http://pypi.debian.net/Keras/Keras-2.2.0.tar.gz
 Source0  : http://pypi.debian.net/Keras/Keras-2.2.0.tar.gz
 Summary  : Deep Learning for humans
@@ -12,6 +12,8 @@ Group    : Development/Tools
 License  : MIT
 Requires: Keras-python3
 Requires: Keras-python
+Requires: Keras_Applications
+Requires: Keras_Preprocessing
 Requires: h5py
 Requires: numpy
 Requires: pandas
@@ -22,6 +24,8 @@ Requires: pytest-xdist
 Requires: requests
 Requires: scipy
 Requires: six
+BuildRequires : Keras_Applications
+BuildRequires : Keras_Preprocessing
 BuildRequires : PyYAML
 BuildRequires : Theano
 BuildRequires : h5py
@@ -68,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528335122
+export SOURCE_DATE_EPOCH=1528377373
 python3 setup.py build -b py3
 
 %install

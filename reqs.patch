@@ -11,3 +11,16 @@
  
  [tests]
  pytest
+--- Keras-2.2.2/setup.py~	2018-07-28 19:34:10.000000000 +0000
++++ Keras-2.2.2/setup.py	2018-09-28 21:37:37.394179084 +0000
+@@ -37,8 +37,8 @@
+                         'six>=1.9.0',
+                         'pyyaml',
+                         'h5py',
+-                        'keras_applications==1.0.4',
+-                        'keras_preprocessing==1.0.2'],
++                        'keras_applications',
++                        'keras_preprocessing'],
+       extras_require={
+           'visualize': ['pydot>=1.2.4'],
+           'tests': ['pytest',

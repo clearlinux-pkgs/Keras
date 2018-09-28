@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.2.2
-Release  : 40
+Release  : 41
 URL      : https://files.pythonhosted.org/packages/64/01/878553a3af23d9a831edbe67889a61aad8b429409b38f5ac2604fba36e9f/Keras-2.2.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/64/01/878553a3af23d9a831edbe67889a61aad8b429409b38f5ac2604fba36e9f/Keras-2.2.2.tar.gz
 Summary  : Deep Learning for humans
@@ -15,6 +15,7 @@ Requires: Keras-license
 Requires: Keras-python
 Requires: Keras_Applications
 Requires: Keras_Preprocessing
+Requires: PyYAML
 Requires: h5py
 Requires: numpy
 Requires: pandas
@@ -29,14 +30,11 @@ BuildRequires : Theano
 BuildRequires : buildreq-distutils3
 BuildRequires : h5py
 BuildRequires : numpy
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python3-dev
 BuildRequires : scipy
-BuildRequires : setuptools
 BuildRequires : setuptools-python
 BuildRequires : six
 BuildRequires : tensorflow
+Patch1: reqs.patch
 
 %description
 Keras is a high-level neural networks API,
@@ -54,7 +52,7 @@ license components for the Keras package.
 %package python
 Summary: python components for the Keras package.
 Group: Default
-Requires: Keras-python3
+Requires: Keras-python3 = %{version}-%{release}
 Provides: keras-python
 
 %description python
@@ -72,20 +70,21 @@ python3 components for the Keras package.
 
 %prep
 %setup -q -n Keras-2.2.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532814617
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1538160639
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/Keras
 cp LICENSE %{buildroot}/usr/share/doc/Keras/LICENSE
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -94,7 +93,7 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/doc/Keras/LICENSE
 
 %files python

@@ -1,0 +1,13 @@
+--- Keras-2.2.2/Keras.egg-info/requires.txt~	2018-07-28 19:34:30.000000000 +0000
++++ Keras-2.2.2/Keras.egg-info/requires.txt	2018-09-28 18:45:46.505322640 +0000
+@@ -3,8 +3,8 @@
+ six>=1.9.0
+ pyyaml
+ h5py
+-keras_applications==1.0.4
+-keras_preprocessing==1.0.2
++keras_applications
++keras_preprocessing
+ 
+ [tests]
+ pytest

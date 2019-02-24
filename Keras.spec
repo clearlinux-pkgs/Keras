@@ -4,24 +4,20 @@
 #
 Name     : Keras
 Version  : 2.2.4
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Summary  : Deep Learning for humans
 Group    : Development/Tools
 License  : MIT
-Requires: Keras-python3
-Requires: Keras-license
-Requires: Keras-python
+Requires: Keras-license = %{version}-%{release}
+Requires: Keras-python = %{version}-%{release}
+Requires: Keras-python3 = %{version}-%{release}
 Requires: Keras_Applications
 Requires: Keras_Preprocessing
 Requires: PyYAML
 Requires: h5py
 Requires: numpy
-Requires: pandas
-Requires: pydot
-Requires: pytest-timeout
-Requires: requests
 Requires: scipy
 Requires: six
 BuildRequires : Keras_Applications
@@ -37,9 +33,9 @@ BuildRequires : six
 BuildRequires : tensorflow
 
 %description
-Keras is a high-level neural networks API,
-        written in Python and capable of running on top of
-        TensorFlow, CNTK, or Theano.
+ï»¿# Keras: Deep Learning for humans
+[![Build Status](https://travis-ci.org/keras-team/keras.svg?branch=master)](https://travis-ci.org/keras-team/keras)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/keras-team/keras/blob/master/LICENSE)
 
 %package license
 Summary: license components for the Keras package.
@@ -76,13 +72,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538616514
+export SOURCE_DATE_EPOCH=1551038265
+export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/Keras
-cp LICENSE %{buildroot}/usr/share/doc/Keras/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/Keras
+cp LICENSE %{buildroot}/usr/share/package-licenses/Keras/LICENSE
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -93,7 +90,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/doc/Keras/LICENSE
+/usr/share/package-licenses/Keras/LICENSE
 
 %files python
 %defattr(-,root,root,-)

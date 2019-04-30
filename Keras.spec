@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.2.4
-Release  : 49
+Release  : 50
 URL      : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Summary  : Deep Learning for humans
@@ -18,6 +18,9 @@ Requires: Keras_Preprocessing
 Requires: PyYAML
 Requires: h5py
 Requires: numpy
+Requires: pandas
+Requires: pydot
+Requires: requests
 Requires: scipy
 Requires: six
 BuildRequires : Keras_Applications
@@ -31,11 +34,12 @@ BuildRequires : scipy
 BuildRequires : setuptools-python
 BuildRequires : six
 BuildRequires : tensorflow
+Patch1: 9416f3647ac4c9ec0c57575a66d66aeac077d56c.patch
 
 %description
-ï»¿# Keras: Deep Learning for humans
-[![Build Status](https://travis-ci.org/keras-team/keras.svg?branch=master)](https://travis-ci.org/keras-team/keras)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/keras-team/keras/blob/master/LICENSE)
+Keras is a high-level neural networks API,
+        written in Python and capable of running on top of
+        TensorFlow, CNTK, or Theano.
 
 %package license
 Summary: license components for the Keras package.
@@ -66,17 +70,20 @@ python3 components for the Keras package.
 
 %prep
 %setup -q -n Keras-2.2.4
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551038265
+export SOURCE_DATE_EPOCH=1556653028
+export LDFLAGS="${LDFLAGS} -fno-lto"
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Keras
 cp LICENSE %{buildroot}/usr/share/package-licenses/Keras/LICENSE

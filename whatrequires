@@ -2,3 +2,5 @@
 Keras_Applications
 Keras_Preprocessing
 tensorflow
+tensorflow-estimator
+tensorflow-probability

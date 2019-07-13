@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.2.4
-Release  : 50
+Release  : 51
 URL      : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.2.4.tar.gz
 Summary  : Deep Learning for humans

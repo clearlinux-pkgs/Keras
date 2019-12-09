@@ -4,9 +4,9 @@
 #
 Name     : Keras
 Version  : 2.3.1
-Release  : 54
-URL      : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.3.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/13/5c/11b1d1e709cfb680cf5cc592f8e37d3db19871ee5c5cc0d9ddbae4e911c7/Keras-2.3.1.tar.gz
+Release  : 55
+URL      : https://files.pythonhosted.org/packages/3b/1f/0bf5dc0b301c80488a563a1ef546dc6b8e1e2a00e93a499d20777b9cb2d9/Keras-2.3.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/3b/1f/0bf5dc0b301c80488a563a1ef546dc6b8e1e2a00e93a499d20777b9cb2d9/Keras-2.3.1.tar.gz
 Summary  : Deep Learning for humans
 Group    : Development/Tools
 License  : MIT
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575916016
+export SOURCE_DATE_EPOCH=1575934833
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "

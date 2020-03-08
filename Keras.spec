@@ -4,7 +4,7 @@
 #
 Name     : Keras
 Version  : 2.3.1
-Release  : 55
+Release  : 56
 URL      : https://files.pythonhosted.org/packages/3b/1f/0bf5dc0b301c80488a563a1ef546dc6b8e1e2a00e93a499d20777b9cb2d9/Keras-2.3.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/3b/1f/0bf5dc0b301c80488a563a1ef546dc6b8e1e2a00e93a499d20777b9cb2d9/Keras-2.3.1.tar.gz
 Summary  : Deep Learning for humans
@@ -67,6 +67,14 @@ python components for the Keras package.
 Summary: python3 components for the Keras package.
 Group: Default
 Requires: python3-core
+Provides: pypi(keras)
+Requires: pypi(h5py)
+Requires: pypi(keras_applications)
+Requires: pypi(keras_preprocessing)
+Requires: pypi(numpy)
+Requires: pypi(pyyaml)
+Requires: pypi(scipy)
+Requires: pypi(six)
 
 %description python3
 python3 components for the Keras package.
@@ -81,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575934833
+export SOURCE_DATE_EPOCH=1583701753
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "

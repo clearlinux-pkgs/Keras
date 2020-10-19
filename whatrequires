@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 Keras_Applications
 Keras_Preprocessing
+horovod
 tensorflow
 tensorflow-estimator
 tensorflow-probability
